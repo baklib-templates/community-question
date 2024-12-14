@@ -99,7 +99,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn-ghost{
-    @apply text-black dark:text-white !bg-transparent hover:!bg-secondary hover:!text-white border;
+    @apply !bg-transparent hover:!bg-secondary hover:!text-white border;
 }
 /* 搜索关键词高亮 */
 .search-highlight-block b {

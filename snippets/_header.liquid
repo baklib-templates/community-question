@@ -18,11 +18,11 @@
 
                     {{ site.settings.header_menu_html }}
                     {% if current_user %}
-                        <li><a href="/s/new" class="py-2 text-white btn-sm bg-primary hover:bg-secondary">发布帖子</a></li>
+                        <li><a href="/s/new" class="py-2 text-white btn-sm bg-primary hover:bg-secondary">{{ 'buttons.join' | t }}</a></li>
                         <li>
                             <div data-controller="dropdown" class="relative">
                                 <button type="button" data-action="dropdown#toggle click@window->dropdown#hide" class="flex items-center space-x-1 btn btn-sm btn-ghost">
-                                    <span>个人中心</span>
+                                    <span>{{ 'generic.profile' | t }}</span>
                                 </button>
                                 <div
                                     data-dropdown-target="menu"
@@ -41,9 +41,9 @@
                                             </svg>
                                         {% endif %}
                                         <span>{{ current_user.name }}</span></div>
-                                    <a href="{{ current_user.profile_url }}"  class="py-2 w-full block hover:text-white hover:bg-accent" target="_blank"> 个人中心 </a>
+                                    <a href="{{ current_user.profile_url }}"  class="py-2 w-full block hover:text-white hover:bg-accent" target="_blank"> {{ 'generic.profile' | t }} </a>
                                     {% form_tag 'sign_out' %}
-                                        <button type="submit" class="py-2 w-full text-left hover:text-white hover:bg-accent">退出登录</button>
+                                        <button type="submit" class="py-2 w-full text-left hover:text-white hover:bg-accent">{{ 'buttons.logout' | t }}</button>
                                     {% endform_tag %}
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                             {% form_tag 'sign_in_with_baklib' %}
                                 <input value="true" type="hidden" name="sign_up">
                                 <input type="submit"
-                                    value="登录/注册"
+                                    value="{{ 'buttons.join' | t }}"
                                     class="btn"
                                     data-disable-with=" ... "
                                     >

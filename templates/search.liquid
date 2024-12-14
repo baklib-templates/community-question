@@ -9,7 +9,7 @@
             <div class="rounded shadow-md bg-primary/80">
               <div class="h-5 rounded-t"></div>
               <div class="px-3 py-6 text-xl font-black bg-white rounded-b">
-                搜索结果
+                {{ 'generic.search_from' | t }}
                   {% if search.tag %}
                     <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
                   {% endif %}

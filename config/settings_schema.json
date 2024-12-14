@@ -106,6 +106,12 @@
         "default": false
       },
       {
+        "id": "slogan",
+        "type": "text",
+        "label": "站点口号",
+        "default": "Data driven content, Content driven data."
+      },
+      {
         "id": "feedback_useful_type",
         "type": "text",
         "label": "t:settings_schema.generic.settings.feedback_useful_type.label",

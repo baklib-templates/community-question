@@ -18,7 +18,7 @@
                 {% for page in pages %}
                   {% render 'page_card', page: page %}
                 {% else %}
-                  内容为空
+                  Empty
                 {% endfor %}
                 {% render 'paginate', paginate: paginate %}
               {% endpaginate_tag %}

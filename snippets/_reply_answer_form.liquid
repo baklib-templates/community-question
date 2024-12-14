@@ -12,17 +12,17 @@
         <input value="{{ root.id }}" autocomplete="off" type="hidden" name="reply[root_id]">
         <input value="{{ parent.id }}" autocomplete="off" type="hidden" name="reply[parent_id]">
         <textarea name="reply[body]" rows="4" class="w-full form-textarea placeholder:italic"
-        placeholder="回复{{ parent.author.name }}..." required></textarea>
+        placeholder="{{ 'generic.reply' | t }} {{ parent.author.name }}..." required></textarea>
 
         <div id="reply_{{ reply.id }}_error" class="text-xs text-red-500"></div>
         <div class="flex items-center space-x-3">
           <input
             type="submit"
-            value="提交"
+            value="{{ 'buttons.submit' | t }}"
             @click="if($el.form.checkValidity()) {open = false}"
             class="btn btn-sm" />
           <div class="btn btn-sm btn-ghost" x-on:click="open = false; content=''">
-            取消
+            {{ 'buttons.cancel' | t }}
           </div>
         </div>
       {% endform_tag %}

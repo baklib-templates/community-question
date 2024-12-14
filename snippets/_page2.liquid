@@ -39,7 +39,7 @@
                 </div>
                 <div
                     class="flex items-center after:block after:content-['·'] last:after:content-[''] after:text-sm after:text-gray-400 dark:after:text-gray-600 after:px-2">
-                    <span class="text-gray-500">{{ page.comments | roots | size }} 回复</span>
+                    <span class="text-gray-500">{{ page.comments | roots | size }} {{ 'generic.comments' | t }}</span>
                 </div>
             </footer>
         </div>
