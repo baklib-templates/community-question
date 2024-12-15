@@ -5,16 +5,41 @@
         <div class="h-auto min-h-screen overflow-visible">
           <div class="relative max-w-7xl px-3 mx-auto  sm:px-0">
             {% comment %} search form {% endcomment %}
-            <!-- tag name -->
-            <div class="rounded shadow-md bg-primary/80">
-              <div class="h-5 rounded-t"></div>
-              <div class="px-3 py-6 text-xl font-black bg-white rounded-b">
-                {{ 'generic.search_from' | t }}
-                  {% if search.tag %}
-                    <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
-                  {% endif %}
-              </div>
-            </div>
+            <!-- Hero -->
+            <section class="relative">
+                <!-- Background gradient (light version only) -->
+                <div class="absolute inset-0 bg-gradient-to-t from-gray-100 to-white opacity-50 pointer-events-none dark:hidden" aria-hidden="true"></div>
+                <!-- End background gradient (light version only) -->
+                <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+                    <div class="pt-20 pb-12 md:pt-32 md:pb-12">
+                        <div class="max-w-3xl mx-auto text-center">
+                          {% if search.tag or search.keywords %}
+                            <h1 class="text-3xl font-black md:text-5xl font-red-hat-display mb-4" data-aos="fade-down">
+                              Search：
+                              {% if search.tag %}
+                                <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
+                              {% endif %}
+                              {% if search.keywords %}
+                                <span class="text-secondary"><i>{{ search.keywords }}</i></span>
+                              {% endif %}
+                            </h1>
+                          {% endif %}
+
+                            <div class="max-w-2xl mx-auto md:px-4">
+                                {% form_tag 'search', class: 'relative flex items-center mt-8', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
+                                    <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="{{ "search.placeholder" | t }}"  class="bg-white border border-gray-300 focus:border-gray-400 rounded leading-snug py-3 px-4 placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800 dark:border dark:border-gray-600 dark:focus:border-gray-500  w-full pl-12" aria-label="Search anything" />
+                                    <button type="submit" class="absolute inset-0 right-auto" aria-label="Search">
+                                        <svg class="w-4 h-4 shrink-0 ml-4 mr-3" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                                            <path class="fill-current text-gray-400" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm8.707 12.293a.999.999 0 11-1.414 1.414L11.9 13.314a8.019 8.019 0 001.414-1.414l2.393 2.393z" />
+                                        </svg>
+                                    </button>
+                                {% endform_tag %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
 
             {% if search.keywords or search.tag %}
               {% comment %} 查询结果 {% endcomment %}

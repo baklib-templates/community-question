@@ -8,17 +8,17 @@
             <!-- tag name -->
             <div class="rounded shadow-md">
               <div class="h-5 rounded-t" style="background-color: {{ tag.color }}"></div>
-              <div class="px-3 py-6 text-xl font-black bg-white rounded-b">
+              <div class="px-3 py-6 text-xl font-black bg-primary rounded-b">
                 # {{ tag.name }}
               </div>
             </div>
             <!-- filters by tag name -->
-            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 ">
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
               {% paginate_tag tag.pages, as: 'pages' %}
                 {% for page in pages %}
-                  {% render 'page_card', page: page %}
+                  {% render 'page2', page: page %}
                 {% else %}
-                  Empty
+                  <div class="p-4 bg-slate-200 dark:bg-slate-600 border">{{ 'generic.empty' | t }}!</div>
                 {% endfor %}
                 {% render 'paginate', paginate: paginate %}
               {% endpaginate_tag %}
