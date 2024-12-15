@@ -13,18 +13,14 @@
 <!-- Hero -->
 {%# render 'hero', page: page %}
 
-{% if pages_count < 1 %}
-    {% render 'demo_forum' %}
-{% else %}
 <div class="px-4 sm:px-6 lg:px-8 py-8 md:py-0 my-4 lg:my-8 w-full max-w-7xl mx-auto">
-
     <div class="xl:flex" x-data="{ current: true}">
 
         <!-- Left + Middle content -->
         <div class="md:flex flex-1">
 
             <!-- Left content -->
-            <div class="w-full md:w-60 mb-8 md:mb-0 p-2 bg-slate-100 dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800">
+            <div class="w-full md:w-60 mb-8 md:mb-0 p-2 bg-slate-50 dark:bg-slate-900 rounded-lg border-r border-slate-200 dark:border-slate-800">
                 <div
                     class="md:sticky md:top-16 md:h-[calc(100dvh-64px)] md:overflow-x-hidden md:overflow-y-auto no-scrollbar">
                     <div class="md:py-4">
@@ -161,7 +157,7 @@
                     </div>
 
                     <!-- List container -->
-                    <turbo-frame id="popular_pages_list" class="space-y-2">
+                    <turbo-frame id="pages_list" class="space-y-2">
                         {% paginate_tag pages, per: 10 %}
                             {% for sub_page in pages %}
                                 {% render 'page2', page: sub_page %}
@@ -306,9 +302,7 @@
         </div>
 
     </div>
-
 </div>
-{% endif %}
 
 
 {% schema %}

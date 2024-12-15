@@ -67,10 +67,10 @@
 
                         <div class="mb-12">
                             <!-- List container -->
-                            <turbo-frame id="popular_pages_list" class="flex flex-col mb-8 space-y-3">
+                            <turbo-frame id="pages_list" class="flex flex-col mb-8 space-y-3">
                                 {% paginate_tag pages, per: 10 %}
                                     {% for sub_page in pages %}
-                                        {% render 'page', page: sub_page %}
+                                        {% render 'page2', page: sub_page %}
                                     {% endfor %}
                                     {% render 'paginate', paginate: paginate %}
                                 {% endpaginate_tag %}

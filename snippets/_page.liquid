@@ -3,16 +3,22 @@
 {% unless default_avatar_url  %} 
     {% assign default_avatar_url = 'images/avatar.svg' |  asset_url %}
 {% endunless %}
-<div class="[&:nth-child(-n+4)]:-order-1 bg-gradient-to-tr from-slate-50/20 via-slate-200/50 to-slate-50/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20">
+<div class="[&:nth-child(-n+4)]:-order-1 bg-gradient-to-tr from-slate-50/20 via-blue-100/50 to-orange-50/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20">
     <div class="relative p-5">
         <div class="absolute inset-0 -m-px pointer-events-none -z-10 before:absolute before:inset-0 before:bg-gradient-to-t before:from-slate-50 before:to-slate-100 dark:before:from-slate-700 dark:before:to-slate-800 after:absolute after:inset-0 after:bg-slate-100 dark:after:bg-slate-900 after:m-px" aria-hidden="true"></div>
         <div class="items-center space-y-3 sm:flex sm:space-y-0 sm:space-x-5">
             <div class="space-y-1 shrink-0">
-                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
-                    <span class="text-xs">{{ 'generic.vote' | t }}</span>
+                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-500 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
+                <span class="item-center">
+                    <svg class="shrink-0 fill-indigo-400 mr-1.5" width="11" height="7"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.664 6.747.336 5.253 5.5.662l5.164 4.591-1.328 1.494L5.5 3.338z" />
+                        </svg>
+                        <span class="text-xs">{{ 'generic.vote' | t }} </span>
+                    </span>
                     <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page | feedback_type_count: site.settings.feedback_useful_type }}</span>
                 </button>
-                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-slate-700 dark:border-slate-700 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800 transition duration-150 ease-in-out">
+                <button class="flex items-center text-left w-20 px-2.5 py-1 rounded  bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 dark:hover:bg-slate-800">
                     <span class="text-xs">{{ 'generic.reply' | t }}</span>
                     <span class="text-xs font-medium text-center text-indigo-500 grow">{{ page.comments | roots | size }}</span>
                 </button>

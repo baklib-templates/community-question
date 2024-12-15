@@ -135,8 +135,8 @@
         "label": "t:settings_schema.generic.settings.header_menu_html.label",
         "info": "t:settings_schema.generic.settings.header_menu_html.info",
         "rows": 10,
-        "default": "<li><a class='underline text-slate-500 hover:no-underline' href='#0'>About</a></li>",
-        "placeholder": "<li><a class='underline text-slate-500 hover:no-underline' href='#0'>About</a></li>"
+        "default": "<a class='underline text-slate-500 hover:no-underline' href='#0'>About</a>",
+        "placeholder": "<a class='underline text-slate-500 hover:no-underline' href='#0'>About</a>"
       },
       {
         "id": "footer_menu_html",

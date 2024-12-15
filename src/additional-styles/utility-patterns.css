@@ -86,8 +86,7 @@ input[type="search"]::-webkit-search-results-decoration {
 /* Buttons */
 .btn,
 .btn-sm {
-    @apply text-sm text-white !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap
-    duration-150 ease-in-out;
+    @apply text-sm text-white !bg-primary hover:!bg-secondary font-medium inline-flex items-center justify-center rounded-full leading-5 whitespace-nowrap duration-150 ease-in-out;
 }
 
 .btn {
@@ -99,7 +98,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .btn-ghost{
-    @apply !bg-transparent hover:!bg-secondary hover:!text-white border;
+    @apply text-primary !bg-transparent hover:!bg-secondary hover:!text-white border border-primary;
 }
 /* 搜索关键词高亮 */
 .search-highlight-block b {

@@ -29,15 +29,11 @@
                         <div class="shrink-0">
                           <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type  }}"
                           :class="{ '!bg-primary': '{{ site.settings.feedback_useful_type }}' === '{{ page.last_feedback_emoji }}' }"
-                            class="flex items-center justify-between text-left w-20 px-2.5 py-1 rounded border border-primary bg-gradient-to-tr dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 from-primary-200 via-accent-200 to-secondary-200 hover:bg-slate-300 dark:hover:bg-slate-800">
-                            <span class="item-center">
-                              <svg class="shrink-0 fill-indigo-400 mr-1.5" width="11" height="7"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.664 6.747.336 5.253 5.5.662l5.164 4.591-1.328 1.494L5.5 3.338z" />
+                            class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary bg-primary hover:bg-slate-300 dark:hover:bg-slate-800">
+                              <svg class="fill-white" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="m0 6 6-6 6 6z"></path>
                               </svg>
-                              <span class="text-xs">{{ 'generic.vote' | t }} </span>
-                            </span>
-                            <span class="text-xs font-medium text-center text-primary dark:text-white grow" x-text="feedback_count"></span>
+                              <span class="text-white" x-text="feedback_count"></span>
                           </button>
                         </div>
                       {% endform_tag %}
@@ -46,32 +42,16 @@
                       {% form_tag 'feedback', page: page %}
                         <div class="shrink-0">
                           <button name="feedback[useful_type]" value="{{ site.settings.feedback_useful_type }}"
-                            class="flex items-center text-left w-20 px-2.5 py-1 rounded border border-primary bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20 hover:bg-slate-300 dark:hover:bg-slate-800">
-                            <span>
-                              <svg class="shrink-0 fill-indigo-400 mr-1.5" width="11" height="7"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1.664 6.747.336 5.253 5.5.662l5.164 4.591-1.328 1.494L5.5 3.338z" />
+                            class="h-12 w-12 pt-2 items-center text-center flex flex-col rounded border border-primary-200 bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 hover:bg-slate-300 dark:hover:bg-slate-800">
+                              <svg class="fill-violet-500" width="12" height="6" xmlns="http://www.w3.org/2000/svg">
+                                  <path d="m0 6 6-6 6 6z"></path>
                               </svg>
-                              <span class="text-xs">{{ 'generic.vote' | t }} </span>
-                            </span>
-                            <span class="text-sm font-medium text-center text-primary dark:text-white grow" x-text="feedback_count"></span>
+                              <span class="" x-text="feedback_count"></span>
                           </button>
                         </div>
                       {% endform_tag %}
                     </div>
                   </div>
-                  <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border dark:border-primary bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20  dark:hover:bg-slate-800 transition duration-150 ease-in-out">
-                    <span>
-                        <span class="text-xs">{{ 'generic.reply' | t}}</span>
-                    </span>
-                    <span class="text-sm font-medium text-center text-primary dark:text-white grow">{{ page.comments | roots | size }}</span>
-                  </button>
-                  <button class="flex items-center text-left w-20 px-2.5 py-1 rounded border dark:border-primary bg-gradient-to-tr from-slate-200/20 via-slate-200/50 to-slate-200/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20  dark:hover:bg-slate-800 transition duration-150 ease-in-out">
-                      <span>
-                          <span class="text-xs">{{ 'generic.visit' | t}}</span>
-                      </span>
-                      <span class="text-sm font-medium text-center text-primary dark:text-white grow">{{ page.visits_count }}</span>
-                  </button>
                 </div>
 
                 <!-- Content -->
