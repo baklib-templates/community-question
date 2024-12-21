@@ -20,17 +20,18 @@
     </div>
   </div>
 {% else %}
-  <div class="flex w-full p-6 space-x-3 rounded-md" >
-    <div class="flex items-center mx-auto">
-      <div class="p-4 border-orange-200 bg-orange-100 my-4 rounded-xl">{{ 'generic.under_review' | t }}</div>
-
-      {% form_tag 'sign_in_with_baklib' %}
-        <input type="submit"
-            value="{{ "buttons.login" | t: '登录' }}"
-            class="mx-1 text-white bg-indigo-500 rounded-md btn-sm hover:bg-indigo-600"
-            data-disable-with=" ... "
-            >
-      {% endform_tag %} 
-    </div>
+  <div class="mx-auto max-w-5xl w-full">
+      <div class="[&:nth-child(-n+4)]:-order-1 bg-gradient-to-tr from-slate-50/20 via-blue-100/50 to-orange-50/20 dark:from-slate-800/20 dark:via-slate-800/50 dark:to-slate-800/20">
+        <div class="relative p-5">
+          {{ 'generic.under_comment' | t }}
+          {% form_tag 'sign_in_with_baklib' %}
+            <input type="submit"
+                value="{{ "buttons.login" | t: '登录' }}"
+                class="mx-1 text-white bg-indigo-500 rounded-md btn-sm hover:bg-indigo-600"
+                data-disable-with=" ... "
+                >
+          {% endform_tag %}
+        </div>
+      </div>
   </div>
 {% endif %}

@@ -28,12 +28,14 @@
     "tags": "标签分类",
     "recommend": "站长推荐",
     "under_review": "内容正在审核中，不对外展示",
+    "under_comment": "登录以后，参与评论",
     "empty": "内容为空",
     "articles": "篇文章",
     "read_more": "阅读更多",
     "404": "404 页面找不到",
     "403": "403 无访问权限",
-    "copyright": "版权所有"
+    "copyright": "版权所有",
+    "news_letter": "加入社区，参与讨论！"
   },
   "placeholders": {
     "search": "站内搜索",

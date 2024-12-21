@@ -27,12 +27,14 @@
     "tags": "Tags",
     "recommend": "Recommend",
     "under_review": "The content is under review, will not be displayed to the public",
+    "under_comment": "You need to log in to comment",
     "empty": "Content is Empty",
     "articles": "articles",
     "read_more": "Read more",
     "404": "404 not found",
     "403": "403 No access permission",
-    "copyright": "All rights reserved"
+    "copyright": "All rights reserved",
+    "news_letter": "Join the community and participate in the discussion"
   },
   "placeholders": {
     "search": "Searching...",
