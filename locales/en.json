@@ -52,6 +52,13 @@
     "sso_login": "SSO Login",
     "baklib_login": "Baklib Account Login"
   },
+  "paginate": {
+    "showing": "currently showing",
+    "total": "total",
+    "records": "records",
+    "previous": "Previous Page",
+    "next": "Next Page"
+  },
   "prompts": {
     "page_restricted": "This page can only be accessed with authentication"
   }
