@@ -70,7 +70,7 @@
                             <turbo-frame id="pages_list" class="flex flex-col mb-8 space-y-3">
                                 {% paginate_tag pages, per: 10 %}
                                     {% for sub_page in pages %}
-                                        {% render 'page2', page: sub_page %}
+                                        {% render 'page', page: sub_page %}
                                     {% endfor %}
                                     {% render 'paginate', paginate: paginate %}
                                 {% endpaginate_tag %}
@@ -176,7 +176,7 @@
                                                 <a class="font-medium text-indigo-500 transition duration-150 ease-in-out hover:text-indigo-400" href="#0">{{ reply.author.name }}</a>
                                             </div>
                                         </div>
-                                        <h3 class="mb-1 text-sm">
+                                        <h3 class="mb-1 text-sm border rounded-md p-2 break-words">
                                             <a class="font-semibold transition duration-150 ease-in-out hover:text-slate-600 dark:hover:text-white" href="{{ reply.target.full_slug  }}"> {{ reply.body | sanitize_html |  truncate: 100 }}</a>
                                         </h3>
                                         <div class="text-xs text-slate-600">
@@ -188,29 +188,7 @@
                         </div>
 
                         <!-- Popular pages -->
-                        <div>
-                            <h3 class="mb-2 text-base font-semibold"> {{ 'generic.popular_reply' | t}}... </h3>
-                            <hr class="mb-2"/>
-                            <ul class="space-y-3">
-                                {% assign popular_replies = site.comments | order_by: '-published_replies_count' | limit: 3  %}
-                                {% for reply in popular_replies %}
-                                    <li>
-                                        <div class="flex items-center mb-1">
-                                            <img class="mr-2 rounded-full" src="{{ reply.author.avatar_url | default: default_avatar_url }}" width="16" height="16" alt="User 06" />
-                                            <div class="text-xs">
-                                                <a class="font-medium text-indigo-500 transition duration-150 ease-in-out hover:text-indigo-400" href="#0">{{ reply.author.name }}</a>
-                                            </div>
-                                        </div>
-                                        <h3 class="mb-1 text-sm">
-                                            <a class="font-semibold transition duration-150 ease-in-out hover:text-slate-600 dark:hover:text-white" href="{{ reply.target.full_slug  }}"> {{ reply.body | sanitize_html |  truncate: 100 }}</a>
-                                        </h3>
-                                        <div class="text-xs text-slate-600">
-                                            <span class="text-slate-500">{{ reply.created_at | date: "%Y-%m-%d %H:%M" }}</span>
-                                        </div>
-                                    </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+
 
                         <!-- Newsletter -->
                         {% render 'news_letter' %}

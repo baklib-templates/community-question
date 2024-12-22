@@ -31,11 +31,14 @@
     "under_comment": "登录以后，参与评论",
     "empty": "内容为空",
     "articles": "篇文章",
+    "feeds": " Feed 信息流",
     "read_more": "阅读更多",
     "404": "404 页面找不到",
     "403": "403 无访问权限",
     "copyright": "版权所有",
-    "news_letter": "加入社区，参与讨论！"
+    "news_letter": "加入社区，参与讨论！",
+    "terms1": "提交的内容，需要后台管理员审核以后方能在前端展示。",
+    "terms2": "平台使用者须遵循相关声明和条款："
   },
   "placeholders": {
     "search": "站内搜索",
@@ -53,7 +56,8 @@
     "delete": "删除",
     "join": "加入社区",
     "sso_login": "SSO 登录",
-    "baklib_login": "Baklib 账号登录"
+    "baklib_login": "Baklib 账号登录",
+    "redirect_to": "未登录，跳转至登录页"
   },
   "prompts": {
     "page_restricted": "本页面需要授权才可以访问"

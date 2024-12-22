@@ -10,7 +10,7 @@
       name="page[template_variables][title]"
       value="{% if page.id  %}{{ page.link_text }}{% endif %}"
       class="form-input mt-1.5 w-full rounded-lg border-2 py-2"
-      placeholder="Some question here..." required />
+      placeholder="place title here..." required />
       {%# 提示 %}
     </div>
 
@@ -27,4 +27,8 @@
     <button type="submit" class="py-2 btn">{{ 'buttons.submit' | t }}</button>
     <a href="/" class="btn btn-ghost">{{ 'buttons.cancel' | t }}</a>
   </div>
+  <ul class="list-inside list-disc text-sm text-gray-500">
+    <li>{{ 'generic.terms1' | t }}</li>
+    <li>{{ 'generic.terms2' | t }}<a href="/s/terms" class="text-blue-600 font-semibold">免责声明</a>。</li>
+  </ul>
 </div>

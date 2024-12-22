@@ -1,5 +1,5 @@
 {% assign default_avatar_url = site.settings.default_avatar %}
-{% unless default_avatar_url  %} 
+{% unless default_avatar_url  %}
     {% assign default_avatar_url = 'images/avatar.svg' |  asset_url %}
 {% endunless %}
 {% assign order_by = params._order_by |  default: '-created_at' %}
@@ -11,7 +11,7 @@
 {% assign pages_count  =  pages | size %}
 
 <!-- Hero -->
-{%# render 'hero', page: page %}
+{% render 'hero', page: page %}
 
 <div class="px-4 sm:px-6 lg:px-8 py-8 md:py-0 my-4 lg:my-8 w-full max-w-7xl mx-auto">
     <div class="xl:flex" x-data="{ current: true}">
@@ -114,7 +114,7 @@
                                 <div class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-3">
                                     {{ 'generic.tags' | t}}</div>
                                 <ul class="flex flex-nowrap md:block mr-3 md:mr-0">
-                                    {% for tag in site.tags %}
+                                    {% for tag in page.settings.tags %}
                                         <li class="mr-0.5 md:mr-0 md:mb-0.5">
                                             <a class="flex items-center px-2.5 py-2 rounded-lg whitespace-nowrap"
                                                 href="{{ tag.path }}">
@@ -129,7 +129,7 @@
                                             </a>
                                         </li>
                                     {% endfor %}
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -161,7 +161,7 @@
                     <turbo-frame id="pages_list" class="space-y-2">
                         {% paginate_tag pages, per: 10 %}
                             {% for sub_page in pages %}
-                                {% render 'page2', page: sub_page %}
+                                {% render 'page', page: sub_page %}
                             {% endfor %}
                             {% render 'paginate', paginate: paginate %}
                         {% endpaginate_tag %}
@@ -189,7 +189,7 @@
                             <div class="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase mb-4">
                                 {{ 'generic.recommend' | t}}</div>
                             <ul>
-                                {% assign index_count = 0 %} 
+                                {% assign index_count = 0 %}
                                 {% for item in pages %}
                                     {% if index_count > 5 %}
                                         {% break %}
@@ -316,7 +316,7 @@
             {
                 "id": "slogan",
                 "type": "text",
-                "label": "t:settings_schema.generic.settings.slogan.label",
+                "label": "站点口号",
                 "default": "👋 A community of makers that learn and grow together"
             },
             {
@@ -330,6 +330,32 @@
                 "type": "tag_picker",
                 "multiple": true,
                 "label": "站点热门标签"
+            },
+            {
+                "id": "text_color",
+                "type": "color",
+                "label": "Hero 文字颜色"
+            },
+            {
+                "id": "bg_color",
+                "label": "Hero 背景色",
+                "type": "color_background"
+            },
+            {
+                "id": "illustration_url",
+                "type": "image_picker",
+                "ratio": "16:9",
+                "width": 400,
+                "label": "Hero 背景插图（SVG）",
+                "info": "虚幻背景SVG格式，参考："
+            },
+            {
+                "id": "hero_url",
+                "type": "image_picker",
+                "ratio": "4:3",
+                "width": 400,
+                "label": "Hero Banner 图片（PNG）",
+                "info": "PNG 透明背景格式，参考："
             }
         ]
     }

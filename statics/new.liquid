@@ -1,3 +1,6 @@
+{% assign title  =  'buttons.create_post' | t %}
+{% set_meta_title title %}
+
 {% if current_user %}
   <main class="grow">
     <section class="relative overflow-hidden">
@@ -33,7 +36,7 @@
   </main>
 {% else %}
 <div class="w-2/3 px-2 mx-auto sm:px-6 min-h-fit">
-    未登录跳转登录页...
+    {{ 'buttons.redirect_to' | t }}...
     {% form_tag 'sign_in_with_baklib' %}
       <input value="true" type="hidden" name="sign_up">
       <input type="submit"

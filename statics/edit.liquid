@@ -1,3 +1,6 @@
+{% assign title  =  'buttons.edit' | t %}
+{% set_meta_title title %}
+
 {%  assign page = current_user.pages[params.page_path] %}
 {% if current_user %}
   <main class="grow">

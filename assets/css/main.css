@@ -1674,10 +1674,6 @@ video {
   display: block;
 }
 
-.inline-block {
-  display: inline-block;
-}
-
 .flex {
   display: flex;
 }
@@ -1688,6 +1684,10 @@ video {
 
 .grid {
   display: grid;
+}
+
+.contents {
+  display: contents;
 }
 
 .hidden {
@@ -1937,8 +1937,16 @@ video {
   resize: none;
 }
 
+.list-inside {
+  list-style-position: inside;
+}
+
 .list-none {
   list-style-type: none;
+}
+
+.list-disc {
+  list-style-type: disc;
 }
 
 .grid-cols-1 {
@@ -2219,6 +2227,11 @@ video {
   border-color: rgb(255 255 255 / var(--tw-border-opacity));
 }
 
+.border-accent {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--theme-color-accent) / var(--tw-border-opacity));
+}
+
 .\!bg-primary {
   --tw-bg-opacity: 1 !important;
   background-color: hsl(var(--theme-color-primary) / var(--tw-bg-opacity)) !important;
@@ -2316,9 +2329,9 @@ video {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-gray-100 {
-  --tw-gradient-from: #f3f4f6 var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(243 244 246 / 0) var(--tw-gradient-to-position);
+.from-gray-200 {
+  --tw-gradient-from: #e5e7eb var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(229 231 235 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -2331,6 +2344,12 @@ video {
 .from-slate-50\/20 {
   --tw-gradient-from: rgb(248 250 252 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(248 250 252 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.from-primary-200 {
+  --tw-gradient-from: hsl(var(--theme-color-primary-hsl-h) var(--theme-color-primary-hsl-s) 84%) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--theme-color-primary-hsl-h) var(--theme-color-primary-hsl-s) 84% / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
@@ -2575,16 +2594,16 @@ video {
   padding-top: 0.5rem;
 }
 
-.pt-20 {
-  padding-top: 5rem;
-}
-
 .pt-4 {
   padding-top: 1rem;
 }
 
 .pt-6 {
   padding-top: 1.5rem;
+}
+
+.pl-8 {
+  padding-left: 2rem;
 }
 
 .text-left {
@@ -2794,6 +2813,16 @@ video {
 .text-yellow-500 {
   --tw-text-opacity: 1;
   color: rgb(234 179 8 / var(--tw-text-opacity));
+}
+
+.text-slate-800 {
+  --tw-text-opacity: 1;
+  color: rgb(30 41 59 / var(--tw-text-opacity));
+}
+
+.text-blue-600 {
+  --tw-text-opacity: 1;
+  color: rgb(37 99 235 / var(--tw-text-opacity));
 }
 
 .antialiased {
@@ -3128,6 +3157,11 @@ body.asleep #screen {
   background-color: rgb(94 234 212 / var(--tw-bg-opacity));
 }
 
+.hover\:bg-accent-100:hover {
+  --tw-bg-opacity: 1;
+  background-color: hsl(var(--theme-color-accent-hsl-h) var(--theme-color-accent-hsl-s) 92% / var(--tw-bg-opacity));
+}
+
 .hover\:text-gray-900:hover {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity));
@@ -3329,6 +3363,12 @@ body.asleep #screen {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+:is(.dark .dark\:from-primary) {
+  --tw-gradient-from: hsl(var(--theme-color-primary) / 1) var(--tw-gradient-from-position);
+  --tw-gradient-to: hsl(var(--theme-color-primary) / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 :is(.dark .dark\:via-sky-300) {
   --tw-gradient-to: rgb(125 211 252 / 0)  var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), #7dd3fc var(--tw-gradient-via-position), var(--tw-gradient-to);
@@ -3476,6 +3516,11 @@ body.asleep #screen {
 :is(.dark .dark\:hover\:bg-white:hover) {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+:is(.dark .dark\:hover\:bg-gray-600:hover) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(75 85 99 / var(--tw-bg-opacity));
 }
 
 :is(.dark .dark\:hover\:text-violet-400:hover) {
@@ -3727,6 +3772,11 @@ body.asleep #screen {
     padding-bottom: 0px;
   }
 
+  .md\:py-12 {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
   .md\:py-4 {
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -3735,10 +3785,6 @@ body.asleep #screen {
   .md\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
-  }
-
-  .md\:pb-12 {
-    padding-bottom: 3rem;
   }
 
   .md\:pb-16 {
@@ -3775,10 +3821,6 @@ body.asleep #screen {
 
   .md\:pt-24 {
     padding-top: 6rem;
-  }
-
-  .md\:pt-32 {
-    padding-top: 8rem;
   }
 
   .md\:text-left {
