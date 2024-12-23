@@ -7,14 +7,15 @@
     "theme_version": "1.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
-    "theme_documentation_url": "https://help.baklib.cn/themes/community-qa",
-    "theme_support_url": "https://help.baklib.cn/themes/community-qa",
+    "theme_documentation_url": "https://help.baklib.cn/themes/question",
+    "theme_support_url": "https://help.baklib.cn/themes/question",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
-      "images/theme/index.png",
-      "images/theme/index-forum.png",
-      "images/theme/page.png",
-      "images/theme/comment.png"
+      "images/theme/question.webp",
+      "images/theme/index.webp",
+      "images/theme/feeds.webp",
+      "images/theme/page.webp",
+      "images/theme/comment.webp"
     ],
     "theme_languages": [
       {
@@ -87,8 +88,8 @@
         "type": "image_picker",
         "ratio": "3:1",
         "width": 150,
-        "label": "t:settings_schema.generic.settings.logo_url.label",
-        "info": "t:settings_schema.generic.settings.logo_url.info"
+        "label": "站点LOGO",
+        "info": "用在站点顶部的 LOGO"
       },
       {
         "id": "default_avatar",
@@ -114,15 +115,15 @@
       {
         "id": "feedback_useful_type",
         "type": "text",
-        "label": "t:settings_schema.generic.settings.feedback_useful_type.label",
-        "placeholder": "t:settings_schema.generic.settings.feedback_useful_type.placeholder",
+        "label": "首选反馈表情",
+        "placeholder": "在'应用设置'->'反馈设置'中复制过来",
         "default": "😊"
       },
       {
         "id": "copyright_info",
         "type": "text",
-        "label": "t:settings_schema.generic.settings.copyright_info.label",
-        "placeholder": "t:settings_schema.generic.settings.copyright_info.placeholder"
+        "label": "版权信息",
+        "placeholder": "中站点页脚显示"
       }
     ]
   },
