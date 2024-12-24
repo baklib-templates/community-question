@@ -1,63 +1,67 @@
-<main class="grow">
-  <section>
-    <div class="max-w-7xl px-4 mx-auto sm:px-6">
-      <div class="pt-6 md:pt-12">
-        <div class="h-auto min-h-screen overflow-visible">
-          <div class="relative max-w-7xl px-3 mx-auto  sm:px-0">
-            {% comment %} search form {% endcomment %}
-            <!-- Hero -->
-            <section class="relative">
-                <!-- Background gradient (light version only) -->
-                <div class="absolute inset-0 bg-gradient-to-t from-primary-200 dark:from-primary to-white opacity-50 pointer-events-none dark:hidden" aria-hidden="true"></div>
-                <!-- End background gradient (light version only) -->
-                <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
-                    <div class="py-6 md:py-12">
-                        <div class="max-w-3xl mx-auto text-center">
-                            <div class="max-w-2xl mx-auto md:px-4">
-                                {% form_tag 'search', class: 'relative flex items-center mt-8', 'data-aso': 'fade-down', 'data-aso-delay': '300' %}
-                                    <input type="search" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape }}" placeholder="{{ "search.placeholder" | t }}"  class="bg-white border border-gray-300 focus:border-gray-400 rounded leading-snug py-3 px-4 placeholder-gray-500 dark:placeholder-gray-400 dark:bg-gray-800 dark:border dark:border-gray-600 dark:focus:border-gray-500  w-full pl-12" aria-label="Search anything" />
-                                    <button type="submit" class="absolute inset-0 right-auto" aria-label="Search">
-                                        <svg class="w-4 h-4 shrink-0 ml-4 mr-3" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                                            <path class="fill-current text-gray-400" d="M7 14c-3.86 0-7-3.14-7-7s3.14-7 7-7 7 3.14 7 7-3.14 7-7 7zM7 2C4.243 2 2 4.243 2 7s2.243 5 5 5 5-2.243 5-5-2.243-5-5-5zm8.707 12.293a.999.999 0 11-1.414 1.414L11.9 13.314a8.019 8.019 0 001.414-1.414l2.393 2.393z" />
-                                        </svg>
-                                    </button>
-                                {% endform_tag %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section class="my-4 space-y-3">
-              <!-- 自定义搜索结果 -->
-              {% if search.page_number == 1 %}
-                {% for link in search.extends %}
-                  <div class="space-y-4 md:p-4 border-b border-accent dark:hover:bg-gray-600 hover:bg-accent-100">
-                    <a class="text-lg font-bold text-slate-800 hover:text-secondary dark:text-slate-200 search-highlight-block" href="{{ link.url }}">{{ link.link_text }}</a>
-                    <p class="text-sm line-clamp-3 text-slate-400 search-highlight-block">{{ link.url }}</p>
-                  </div>
-                {% endfor %}
-              {% endif %}
-
-              {% if search.keywords or search.tag %}
-                {% comment %} 查询结果 {% endcomment %}
-                  {% assign  pages = search.pages | where: 'template_name', 'page' %}
-                  {% paginate_tag pages, per: 12 %}
-                    {% for page in pages %}
-                      {% render 'page', page: page %}
-                    {% else %}
-                      <div class="w-full mx-auto my-8">{{ "search.no_results" | t: 'No results found' }}</div>
-                    {% endfor %}
-                    {% render 'paginate', paginate: paginate %}
-                  {% endpaginate_tag %}
-              {% else %}
-                <div class="w-full mx-auto my-8">{{ "search.please_enter_keywords" | t }}</div>
-              {% endif %}
-            </section>
-
-          </div>
-        </div>
+<div class="overflow-visible h-auto pb-12 min-h-screen bg-slate-100">
+  <div class="max-w-5xl mx-auto relative pt-24 px-3 sm:px-0">
+    {% comment %} search form {% endcomment %}
+    <div class="p-5 text-white rounded-tl-lg rounded-tr-lg bg-primary/80">
+      <div class="relative flex items-center mb-3 text-center">
+        <a class="absolute flex text-sm font-semibold leading-6 dark:text-slate-200 dark:hover:text-white" href="{{ site.index_path }}">
+          <svg viewBox="0 -9 3 24" class="w-auto h-6 mr-3 overflow-visible dark:group-hover:text-slate-300">
+            <path d="M3 0L0 3L3 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+          <span>{{ "generic.back" | t }}</span>
+        </a>
+        <h1 class="flex justify-center flex-grow w-0 text-lg">{{ "generic.search_from" | t }}</h1>
       </div>
+      {% form_tag 'search' %}
+        <div class="relative flex items-center">
+          <input type="text" name="{{form.keywords_field_name}}" value="{{ search.keywords | escape_once }}" class="block w-full outline-none border-0 bg-white rounded pl-2 pr-8 text-[#424242] py-3 placeholder:text-gray-400 text-sm" placeholder="{{ "placeholders.search" | t }}">
+        </div>
+      {% endform_tag %}
+
+      {% if search.tag or search.keywords %}
+        <p class="mt-3 text-xs">
+          {{ "generic.search_from" | t }}
+          {% if search.tag %}
+            <i class="px-2 py-1 rounded" style="background-color: {{ search.tag.color }}">{{ search.tag.name }}</i>
+          {% endif %}
+          {% if search.keywords %}
+            <i>{{ search.keywords }}</i>
+          {% endif %}
+        </p>
+      {% endif %}
     </div>
-  </section>
-</main>
+
+    {% if search.keywords or search.tag %}
+      {% comment %} 查询结果 {% endcomment %}
+      <ul class="p-2 overflow-hidden list-none bg-white rounded-bl-lg rounded-br-lg space-y-3">
+        {% paginate_tag search.extends, as: 'extends' %}
+          {% for extend in extends %}
+            <li class="p-2"><a href="{{extend.url}}">{{extend.link_text}}</a></li>
+          {% endfor %}
+        {% endpaginate_tag %}
+
+        {% paginate_tag search.pages, as: 'items' %}
+          {% for page in items %}
+            <li class="flex items-center px-2 py-2 space-x-2 border border-slate-100 rounded group hover:bg-primary/10">
+              <div class="flex-grow w-0">
+                <h3 class="h4 truncate">
+                  <a href="{{ page.url }}" class="inline-block search-highlight-block">
+                    {{ page.highlighted_search_title }}
+                  </a>
+                </h3>
+                <p class="text-gray-400 line-clamp-3 search-highlight-block">
+                  {{ page.highlighted_search_content }}
+                </p>
+              </div>
+              <span class="flex-shrink-0 inline-block w-0 h-0 border-[5px] border-l-primary border-t-transparent border-r-transparent border-b-transparent"></span>
+            </li>
+          {% else %}
+            {{ "generic.empty" | t }}
+          {% endfor %}
+          {% render 'paginate', paginate: paginate %}
+        {% endpaginate_tag %}
+      </ul>
+    {% else %}
+      <div class="w-full mx-auto my-8">{{ "generic.empty" | t }}</div>
+    {% endif %}
+  </div>
+</div>
