@@ -7,8 +7,8 @@
     "theme_version": "1.0.0",
     "theme_scope": "community",
     "theme_author": "Baklib",
-    "theme_documentation_url": "https://help.baklib.cn/themes/question",
-    "theme_support_url": "https://help.baklib.cn/themes/question",
+    "theme_documentation_url": "https://help.baklib.cn/themes/community/question",
+    "theme_support_url": "https://help.baklib.cn/themes/community/question",
     "theme_thumb_url": "images/theme/thumb.png",
     "theme_preview_images": [
       "images/theme/question.webp",
