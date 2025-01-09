@@ -30,7 +30,6 @@ export default class extends Controller {
         post(this.urlValue, { body: formData }).then((res) => {
           if (res.ok) {
             res.json.then((data) => {
-              debugger
               const id = data[0].signed_id;
               this.hiddenFieldTarget.value = id; // 更新隐藏字段
               this.idValueChanged();
