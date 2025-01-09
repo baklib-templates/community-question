@@ -1,7 +1,7 @@
 [
   {
     "name": "theme_info",
-    "theme_name": "q_and_a",
+    "theme_name": "qa_question",
     "theme_label": "t:theme_label",
     "theme_description": "t:theme_description",
     "theme_version": "1.0.0",
