@@ -1,99 +1,80 @@
-# 社区问题类型 模板
+# [Baklib Community Question 模板]
 
-## 介绍
+A lightweight Q&A management system designed for creating and managing question-and-answer content such as FAQs, troubleshooting guides, knowledge base articles, user support threads, and more.
 
-## 开发
+教程： https://help.baklib.cn/themes/community/question
 
-```bash
-npm run dev
-```
-### 安装配置TailwindCSS
-[TailwindCSS官网](https://www.tailwindcss.cn/docs/installation)
-
-#### 1.安装Tailwindcss
-通过`npm`安装`tailwindcss`，然后创建`tailwind.config.js`配置文件
-```bash
-npm add -D tailwindcss
-npx tailwindcss init
-```
-#### 2.配置模板文件的路径和自定义样式
-```javascript
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: ["./templates/**/*.liquid", "./snippets/**/*.liquid", "./layout/**/*.liquid", "./statics/**/*.liquid"],
-  darkMode: 'class',
-  theme: {
-    extend: {
-      colors: () => {
-        return {
-          slate: {
-            150: "#E9EEF5"
-          },
-          ...["primary", "secondary", "accent", "info", "success", "warning"].reduce((map, name) => {
-            return {
-              ...map,
-              [name]: {
-                DEFAULT: `hsl(var(--theme-color-${name}) / <alpha-value>)`,
-                lighten: `hsl(var(--theme-color-${name}-hsl-h) var(--theme-color-${name}-hsl-s) calc(var(--theme-color-${name}-hsl-l) + 15%))`,
-                darken: `hsl(var(--theme-color-${name}-hsl-h) var(--theme-color-${name}-hsl-s) calc(var(--theme-color-${name}-hsl-l) - 15%))`,
-                ...[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].reduce((map,lightness) => {
-                  return {
-                    ...map,
-                    [lightness]: `hsl(var(--theme-color-${name}-hsl-h) var(--theme-color-${name}-hsl-s) ${100 - lightness/10*0.8}%)`
-                  }
-                }, {})
-              }
-            }
-          }, {}),
-          // 错误色永远是红色，饱和度与主色调保持一致
-          error: {
-            DEFAULT: `hsl(355 75% var(--theme-color-primary-hsl-l) / <alpha-value>)`,
-            lighten: `hsl(355 75% calc(var(--theme-color-primary-hsl-l) + 15%))`,
-            darken: `hsl(355 75% calc(var(--theme-color-primary-hsl-l) - 15%))`,
-            ...[50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950].reduce((map,lightness) => {
-              return {
-                ...map,
-                [lightness]: `hsl(355 75% ${100 - lightness/10*0.8}%)`
-              }
-            }, {})
-          }
-        }
-      },
-      spacing: {
-        4.5: "1.125rem",
-        5.5: "1.375rem",
-        18: "4.5rem",
-      },
-    },
-  },
-  plugins: [],
-}
-```
-#### 3.引入Tailwindcss到css文件中
-例如：`./src/main.css`
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@config '../tailwind.config.js'
-```
-#### 4.在`package.json`中配置css编译路径
-```json
-"scripts": {
-  "build": "npm-run-all --parallel build:css build:js",
-  "build:css": "npx tailwindcss -i ./src/main.css -o ./assets/css/main.css",
-  ......
-  "dev": "npm-run-all --parallel 'build:css -- --watch' 'build:js -- --watch'"
-}
-```
-#### 5.在`theme.liquid`文件中引入css
-```html
-{{ 'css/main.css' | asset_url | stylesheet_tag: data-turbo-track: 'reload' }}
-```
+Demo: https://demo-question.uibak.com/
 
 
-## 编译&发布
+轻量级问答管理系统，用于创建和管理问答内容，如常见问题、故障排查指南、知识库文章、用户支持帖等。
+社区问答网站是一个平台，用户可以在特定主题或一系列主题上提问和回答问题。这些网站促进协作、知识共享和社区建设。它们通常包含以下功能：
 
-```bash
-yarn build
-```
+* **提问:** 用户可以提交问题，提供详细信息和上下文。这通常包括标题、正文文本以及可能用于分类的标签。
+
+* **回答:** 其他用户可以回答已提出的问题。最佳答案通常会被提问者点赞或标记为已采纳。
+
+* **用户个人资料:** 用户通常拥有个人资料，显示他们的活动、声誉（基于点赞、已采纳的答案等）以及其他相关信息。
+
+* **投票/点赞:** 用户可以对答案进行投票，表明其有用性或准确性。高票答案通常会更突出地显示。
+
+* **评论:** 用户可以评论问题和答案，以提供进一步的澄清、反馈或其他信息。
+
+* **分类/标签:** 问题和答案通常被分类或标记，以便更容易找到相关内容。这提高了可搜索性和组织性。
+
+* **搜索功能:** 健全的搜索功能允许用户快速找到与他们的查询相关的现有问题和答案。
+
+* **审核:** 为维护质量和防止滥用，社区问答网站通常有版主来监督内容、执行规则和处理用户问题。
+
+
+## 截图预览
+
+![index](https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NDY2NDYsInBhdGgiOiJjb21tdW5pdHkg56S-5Yy65oiq5Zu-IDEud2VicCIsInRpbWVzdGFtcCI6IjIwMjQtMTItMjMgMTA6NDA6NDEgKzA4MDAifSwicHVyIjoib3JnYW5pemF0aW9uX3ByeTNjNS0tbWFpbi12ZXJzaW9uIn19--bc9597212644ade439559175403206b63e21778c3edd9fd8272cd1db514b8f1f/community%20%E7%A4%BE%E5%8C%BA%E6%88%AA%E5%9B%BE%201.webp)
+
+![page](https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NDY2NDcsInBhdGgiOiJjb21tdW5pdHkg56S-5Yy65oiq5Zu-IDIud2VicCIsInRpbWVzdGFtcCI6IjIwMjQtMTItMjMgMTA6NDA6NDEgKzA4MDAifSwicHVyIjoib3JnYW5pemF0aW9uX3ByeTNjNS0tbWFpbi12ZXJzaW9uIn19--68ff6dee06c57dc6846582a89ae8ea8e0e1c9c1d917ee0a77e4a697345f3ed25/community%20%E7%A4%BE%E5%8C%BA%E6%88%AA%E5%9B%BE%202.webp)
+
+## 模板结构
+
+`
+  ├── README.md
+  ├── config
+  │   └── settings_schema.json
+  ├── layout
+  │   ├── error.liquid
+  │   └── theme.liquid
+  ├── package-lock.json
+  ├── package.json
+  ├── snippets
+  │   ├── _demo_forum.liquid
+  │   ├── _feedback_form.liquid
+  │   ├── _footer.liquid
+  │   ├── _header.liquid
+  │   ├── _hero.liquid
+  │   ├── _news_letter.liquid
+  │   ├── _page.liquid
+  │   ├── _page_form.liquid
+  │   ├── _reply.liquid
+  │   ├── _reply_answer_form.liquid
+  │   ├── _reply_page_form.liquid
+  │   ├── _search_form.liquid
+  │   └── _tag.liquid
+  ├── statics
+  │   ├── edit.liquid
+  │   ├── feed.liquid
+  │   ├── new.liquid
+  │   ├── replies.liquid
+  │   └── terms.liquid
+  ├── tailwind.config.js
+  ├── templates
+  │   ├── create_answer_reply_success_turbo_stream.liquid
+  │   ├── create_post_error_turbo_stream.liquid
+  │   ├── create_reply_success_turbo_stream.liquid
+  │   ├── destroy_reply_success_turbo_stream.liquid
+  │   ├── index.forum.liquid
+  │   ├── index.liquid
+  │   ├── page.liquid
+  │   ├── search.liquid
+  │   ├── tag.liquid
+  │   └── toast_error_turbo_stream.liquid
+  └── yarn.lock
+`
