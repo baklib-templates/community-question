@@ -27,15 +27,17 @@ Demo: https://demo-question.uibak.com/
 * **审核:** 为维护质量和防止滥用，社区问答网站通常有版主来监督内容、执行规则和处理用户问题。
 
 
-## 截图预览
+## Screenshots
 
-![index](https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NDY2NDYsInBhdGgiOiJjb21tdW5pdHkg56S-5Yy65oiq5Zu-IDEud2VicCIsInRpbWVzdGFtcCI6IjIwMjQtMTItMjMgMTA6NDA6NDEgKzA4MDAifSwicHVyIjoib3JnYW5pemF0aW9uX3ByeTNjNS0tbWFpbi12ZXJzaW9uIn19--bc9597212644ade439559175403206b63e21778c3edd9fd8272cd1db514b8f1f/community%20%E7%A4%BE%E5%8C%BA%E6%88%AA%E5%9B%BE%201.webp)
+![Baklib CMS based index theme](./assets/images/theme/index.webp)
+![Baklib CMS based page theme](./assets/images/theme/index-forum.webp)
+![Baklib CMS based page theme](./assets/images/theme/feeds.webp)
+![Baklib CMS based page theme](./assets/images/theme/question.webp)
+![Baklib CMS based page theme](./assets/images/theme/comment.webp)
 
-![page](https://tanmer.baklib.com/-/dam/assets/organization_pry3c5--main-version/eyJfcmFpbHMiOnsiZGF0YSI6eyJpZCI6NDY2NDcsInBhdGgiOiJjb21tdW5pdHkg56S-5Yy65oiq5Zu-IDIud2VicCIsInRpbWVzdGFtcCI6IjIwMjQtMTItMjMgMTA6NDA6NDEgKzA4MDAifSwicHVyIjoib3JnYW5pemF0aW9uX3ByeTNjNS0tbWFpbi12ZXJzaW9uIn19--68ff6dee06c57dc6846582a89ae8ea8e0e1c9c1d917ee0a77e4a697345f3ed25/community%20%E7%A4%BE%E5%8C%BA%E6%88%AA%E5%9B%BE%202.webp)
+## 🚀 Project Structure
 
-## 模板结构
-
-`
+```
   ├── README.md
   ├── config
   │   └── settings_schema.json
@@ -77,4 +79,4 @@ Demo: https://demo-question.uibak.com/
   │   ├── tag.liquid
   │   └── toast_error_turbo_stream.liquid
   └── yarn.lock
-`
+```
